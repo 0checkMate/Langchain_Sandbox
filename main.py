@@ -1,14 +1,23 @@
 from dotenv import load_dotenv
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
+from rich.console import Console
+from rich.markdown import Markdown
+
 
 load_dotenv()
 
-MODEL_NAME = 'gemini-3.8-flash'
+PRIMARY_MODEL = 'gemini-3.7-flash'
+FALLBACK_MODEL = 'gemini-3.6-flash'
 
-llm = ChatGoogleGenerativeAI(model=MODEL_NAME, temperature=0)
+primary = ChatGoogleGenerativeAI(model=PRIMARY_MODEL, temperature=0)
+fallback = ChatGoogleGenerativeAI(model=FALLBACK_MODEL, temperature=0)
+
+llm = primary.with_fallbacks([fallback])
+
 prompt = ChatPromptTemplate.from_template('Explain {topic} to a 10-year-old.')
-chain = prompt | llm
+chain = prompt | llm | StrOutputParser()
 
-response = chain.invoke({'topic': 'cold-press juice extraction'})
-print(response.content)
+response = chain.invoke({'topic': 'quantum physics'})
+Console().print(Markdown(response))
