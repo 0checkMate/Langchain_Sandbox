@@ -20,4 +20,4 @@ prompt = ChatPromptTemplate.from_template('Explain {topic} to a 10-year-old.')
 chain = prompt | llm | StrOutputParser()
 
 response = chain.invoke({'topic': 'quantum physics'})
-Console().print(Markdown(response))
+Console().print(Markdown(response)) 
