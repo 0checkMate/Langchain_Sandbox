@@ -1,0 +1,21 @@
+SAMPLE SOP-001: COLD-PRESS JUICE PRODUCTION HYGIENE (FICTIONAL EXAMPLE)
+
+1. Purpose
+This procedure defines hygiene controls for the cold-press juice line.
+
+2. Personnel hygiene
+All staff must wash hands for at least 20 seconds before entering the production area.
+Hairnets, beard covers and clean aprons are mandatory. Jewellery is not permitted.
+
+3. Equipment sanitation
+Press cloths and contact surfaces are sanitised with a food-grade sanitiser diluted to 200 ppm.
+The required contact time is 2 minutes, followed by a potable water rinse.
+Sanitation is recorded on form QA-12 at the end of every shift.
+
+4. Product storage
+Finished juice is stored at 4 degrees Celsius or below.
+The assigned shelf life is 5 days from the production date.
+Any batch stored above 6 degrees Celsius for more than 2 hours is quarantined for QA review.
+
+5. Deviations
+Any deviation from this procedure is reported to the Production Lead within 1 hour.
