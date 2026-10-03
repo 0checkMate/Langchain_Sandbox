@@ -62,3 +62,4 @@ pip freeze > requirements.txt
 | `ModuleNotFoundError` | Environment not activated, or wrong VS Code interpreter selected |
 | Output shows `[{'type': 'text', ...}]` | `StrOutputParser()` is missing from the chain |
 | Embedding model 404 | Model name has been retired, Update EMBEDDING_MODEL
+| Empty retrieval results | the ingest script has not been run, or the collection name differs between scripts
