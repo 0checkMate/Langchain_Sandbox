@@ -13,7 +13,7 @@ load_dotenv()
 EMBEDDING_MODEL = 'gemini-embedding-001'
 CHROMA_DIR = 'chroma_db'
 COLLECTION_NAME = 'sop_documents'
-LLM_MODEL = 'gemini-3.7-flash'
+LLM_MODEL = 'gemini-3.6-flash'
 TOP_K = 3
 
 #Questions to ask the RAG system. You can modify these to test different queries.
