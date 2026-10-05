@@ -3,6 +3,7 @@ from langchain_chroma import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_core.rate_limiters import InMemoryRateLimiter
 
 load_dotenv()
 
@@ -39,7 +40,14 @@ vector_store = Chroma(
     persist_directory=CHROMA_DIR,
 )
 
-llm = ChatGoogleGenerativeAI(model=LLM_MODEL, max_retries=3)
+rate_limiter = InMemoryRateLimiter(
+    requests_per_second=0.07,
+    check_every_n_seconds=0.5,
+    max_bucket_size=1,
+)
+
+llm = ChatGoogleGenerativeAI(model=LLM_MODEL, max_retries=3, rate_limiter=rate_limiter)
+
 chain = prompt | llm | StrOutputParser()
 
 def format_context(docs):
